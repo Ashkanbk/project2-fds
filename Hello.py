@@ -113,8 +113,24 @@ st.pyplot(fig)
 
 st.title("2- Feature selection:")
 
+
+# Key Features
+
+st.subheader("Team Rankings:")
+st.write("- Importance: High\n- Features: 'HomeRank', 'AwayRank', 'HomRankDiff'\n- Explanation: Significantly important, offering insights into relative team strengths.")
+
+st.subheader("Tournament Type:")
+st.write("- Importance: Medium\n- Feature: 'tournament'\n- Explanation: Provides moderate impact, capturing strategic variations based on tournament types.")
+
+st.subheader("Venue:")
+st.write("- Importance: Medium\n- Features: 'neutral'\n- Explanation: Binary indicator for venue neutrality, capturing potential home-field advantages.")
+
+st.subheader("Date-Related Features:")
+st.write("- Importance: Low to Medium\n- Features: 'date' and 'rank_date'\n- Explanation: Contribute to a lesser extent, incorporating temporal and ranking dynamics.")
+
+
 st.title("3- Model Comparison: ")
-st.write("The **FIFA ranking** system is a pivotal index in international football, assessing team strength through a point-based algorithm. Teams earn or lose points based on match results and opponent strength. These rankings, announced monthly, offer a numerical representation of a team's global standing, with **higher** rankings indicating **stronger** teams. They influence key factors like tournament seeding, shaping the competitive landscape of international football.")
+st.write("In the pursuit of predicting football match outcomes, a selection of machine learning models was employed for the classification and training of our dataset. The models, namely Logistic Regression, Decision Tree, Random Forest, Support Vector Machine (SVM), K-Nearest Neighbors, Naive Bayes, Gradient Boosting, and Neural Network, were utilized to discern patterns and relationships within the data. Each model was trained and evaluated, and their accuracy in predicting match results based on a comprehensive set of features, including team identities, match scores, and team rankings, was compared in this section.")
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 rs2=rs.drop(['date','city','country','home_score','away_score'],axis=1)
@@ -202,7 +218,7 @@ plt.tight_layout()
 st.pyplot(fig1)
 
 st.title("4- Why ? ")
-st.write("The **FIFA ranking** system is a pivotal index in international football, assessing team strength through a point-based algorithm. Teams earn or lose points based on match results and opponent strength. These rankings, announced monthly, offer a numerical representation of a team's global standing, with **higher** rankings indicating **stronger** teams. They influence key factors like tournament seeding, shaping the competitive landscape of international football.")
+st.write("The accuracy of our model in predicting football match outcomes hovers around 0.6, a result influenced by several factors. Firstly, the limitations of our database and computational resources constrain the model's ability to capture all relevant aspects influencing match results. Football matches are inherently dynamic, and numerous unpredictable elements come into play that are not easily reducible to finite features. For instance, the impact of a last-minute player substitution, unexpected weather conditions, or an unanticipated change in team strategy can significantly alter the course of a match. Moreover, the nature of sports prediction suggests that achieving accuracy between 60 to 70% is considered quite respectable. Sports events inherently possess an element of unpredictability, making it challenging to achieve higher accuracy levels. In this context, our model's performance within the 60% range aligns with the expectations for predicting the often unpredictable outcomes of football matches.")
 
 st.subheader('Decision Boundaries')
 
@@ -214,7 +230,9 @@ st.image("download.png", use_column_width="always")
 
 
 st.title("5- Possible answers ")
-st.write("The **FIFA ranking** system is a pivotal index in international football, assessing team strength through a point-based algorithm. Teams earn or lose points based on match results and opponent strength. These rankings, announced monthly, offer a numerical representation of a team's global standing, with **higher** rankings indicating **stronger** teams. They influence key factors like tournament seeding, shaping the competitive landscape of international football.")
+st.subheader('Incresing number of Features')
+
+st.write("Generally, increasing the number of features can improve a model's accuracy in predicting test data. Yet, in our scenario, we noted that augmenting the features led to only a marginal increase in accuracy, peaking at around 3 to 4%, depending on the specific model employed.")
 
 
 data_table_1 = {
@@ -237,7 +255,6 @@ data_table_2 = {
 df_table_2 = pd.DataFrame(data_table_2)
 
 
-st.subheader('Incresing number of Features')
 
 # Display the data tables
 
